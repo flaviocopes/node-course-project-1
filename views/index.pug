@@ -1,0 +1,30 @@
+html
+  head
+    link(rel='stylesheet', href='style.css')
+    script(src='client.js')
+  body
+    #container
+      #sidebar
+        ul
+          li.active All
+          each site in sites
+            li= site.name
+
+      #main
+        #select
+          a(class='button total active' href='#') Total
+          a(class='button organic' href='#') Organic
+        #stats
+          #today
+            h2 Today
+            p.total #{sums.today.total}
+            p.organic.hidden #{sums.today.organic}
+          #yesterday
+            h2 Yesterday
+            p.total #{sums.yesterday.total}
+            p.organic.hidden #{sums.yesterday.organic}
+          #monthly
+            h2 Last 30
+            p.total #{sums.monthly.total}
+            p.organic.hidden #{sums.monthly.organic}
+      
